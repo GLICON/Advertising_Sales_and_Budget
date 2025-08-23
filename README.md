@@ -33,10 +33,8 @@ The primare dataset is provided in the file "Advertising Budget and Sales.csv" c
 3. Are there specific combinations of advertising budgets that consistently lead to high sales (e.g. Sales > 20)?
 
 ### Tools
-- Excel (Data cleaning)
+- Excel (Data cleaning, sorting, statistical analysis and Visualization)
 - pgSQL (Data querying)
-- Statistical analysis and Panda Lib for data aggregation
-- Power BI (Data Visualization)
 
 ### Data Cleaning and Preparation
 In the initial data preparation phase, the following tasks were performed as listed below:
@@ -66,21 +64,69 @@ The dataset is imported into pgSQL using the following query:
 3. Budget Combinations (Sales > 20)
 <img width="570" height="91" alt="Screenshot 2025-08-19 at 13 37 04" src="https://github.com/user-attachments/assets/f32d1caa-23b7-4cfb-9a17-b0912825f9f6" />
 
-## Exploratory Data Analysis (Python/Pandas)
-Q1: TV Advertising Across Budget Ranges (Low, Medium, High, Very High)
+## Exploratory Data Analysis (Statistical Analysis)
+1. TV Advertising Across Budget Ranges (Low, Medium, High, Very High)
 Percentile is used to categorizxe the budget ranges:
 
 Lower Quartile = QUARTILE.INC(B2:B201, 3) = 74.375 
 Median = QUARTILE.INC(B2:B201, 3) = 149.75
 Upper Quartile = QUARTILE.INC(B2:B201, 3) = 218.825
 
+2. TV and Radio/TV Effect (Newspaper < 10)
+When Newspaper Ad Budget is minimal (less than $10), there are 42 relevant data points for analysis.
+The csv file 'newspaperlessthan10.csv' contains this dataset.
+
+3: Budget Combinations (Sales > 20)
+
+## Results and Findings
+1.
 **Low**: less than $74.4
 **Medium**: from $74.4 to $149.8
 **High**: from $149.8 to $218.8
 **Very High**: more than $218.8
 
-Q2: TV and Radio/TV Effect (Newspaper < 10)
-When Newspaper Ad Budget is minimal (less than $10), there are 42 relevant data points for analysis.
+2.
+<img width="750" height="467" alt="Screenshot 2025-08-22 at 19 22 30" src="https://github.com/user-attachments/assets/3fd7fe92-5c16-408c-b201-f0ac87ec2e51" />
 
+From the correlation and regression analysis, the following data was gotten:
+
+
+The regression output provides a model of how TV and Radio budgets together predict sales, with Newspaper spending < 10. The model is:
+Sales = 2.4702 + 0.0483 × TV_ad_budget + 0.1737 × Radio_ad_budget
+
+Key points from the regression:
+a.	R-squared: 0.84 (84%) - TV and Radio together explain 84% of the variance in sales, indicating a strong combined effect and the adjusted R-squared (0.8325) confirms the model’s goodness of fit, accounting for the number of predictors.
+
+b.	Coefficients:
+Intercept: 2.4702 (p = 0.0062, significant) Baseline sales when TV and Radio budgets are zero.
+
+- TV_ad_budget: 0.0483 (p = 4.93E-15, highly significant)
+	For each $1 increase in TV budget, sales increase by 0.0483 units, holding Radio constant.
+
+- Radio_ad_budget: 0.1737 (p = 5.59E-09, highly significant) (i.e. for each $1 increase in Radio budget, sales increase by 0.1737 units, holding TV constant). Therefore, Radio has a higher per-dollar impact on sales compared to TV (0.1737 vs. 0.0483).
+  
+c.	Model Significance:
+The F-statistic (100.43, p = 6.78E-16) indicates the overall model is highly significant, meaning TV and Radio budgets together reliably predict sales.
+
+d.	Standard Error and Confidence Intervals:
+- TV coefficient: 0.0483 ± 0.0078 (95% CI: 0.0405 to 0.0561)
+- Radio coefficient: 0.1737 ± 0.0470 (95% CI: 0.1267 to 0.2207)
+- Both coefficients are precise, with narrow confidence intervals, reinforcing their reliability.
+Combined Effect of TV and Radio
+
+**Individual Contributions**:
+- TV has a stronger correlation with sales (0.7916) than Radio (0.4584), suggesting TV ads is a more dominant driver of sales in this dataset.
+
+A correlation of 0.79 for TV advertising indicates a strong linear relationship, meaning higher TV ad budgets are closely tied to increased sales. In contrast, a correlation of 0.46 for radio advertising suggests a moderate linear relationship, where higher radio ad budgets are associated with higher sales, but the connection is less robust than for TV. These correlations highlight TV's stronger impact on sales compared to radio.
+
+**Combined Impact**:
+- The high R-squared (0.8409) shows that TV and Radio together account for most of the variation in sales when Newspaper spending is minimal. R-squared value of 0.85 indicates that 85% of the variation in sales can be explained by the combined effect of TV and radio advertising budgets. This suggests a strong relationship between TV and Radio ad spendings and sales when Newspapar ad is budgeted less than $10. The regression model suggests that both variables are significant predictors, and their combined effect is substantial, with no evidence of multicollinearity (TV and Radio correlation is near zero at -0.0159).
+
+Coeffiicients for TV ad budgdet: 0.048 and
+Coefficients for Radio ad budget: 0.174
+
+On the other hand, for each $1 increase in TV budget, sales increase by about 0.047 units, holding Radio ad budget constant while for each $1 increase in Radio budget, sales increase by about 0.176 units, holding TV ad budget constant.
+
+3. 
 
 
