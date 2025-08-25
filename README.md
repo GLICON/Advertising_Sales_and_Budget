@@ -125,7 +125,8 @@ Coefficients for Radio ad budget: 0.174
 On the other hand, for each $1 increase in TV budget, sales increase by about 0.047 units, holding Radio ad budget constant while for each $1 increase in Radio budget, sales increase by about 0.176 units, holding TV ad budget constant.
 
 3.
-<img width="587" height="470" alt="Screenshot 2025-08-25 at 21 00 35" src="https://github.com/user-attachments/assets/1e094f47-2c97-425e-9c60-b651d710da3c" />
+<img width="759" height="473" alt="Screenshot 2025-08-25 at 21 54 13" src="https://github.com/user-attachments/assets/dfc651b6-0d3e-4da8-9544-3e76a8012725" />
+
 The regression output provides a model of how TV and Radio budgets together predict sales, with Newspaper spending < $10. The model is: Sales = -1.5015 + 0.0486 × TV_ad_budget + 0.3087 × Radio_ad_budget + 0.0011 × Newspaper
 
 Key points from the regression:
