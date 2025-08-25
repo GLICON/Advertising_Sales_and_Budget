@@ -86,12 +86,9 @@ The csv file 'newspaperlessthan10.csv' contains this dataset.
 **Very High**: more than $218.8
 
 2.
-<img width="750" height="467" alt="Screenshot 2025-08-22 at 19 22 30" src="https://github.com/user-attachments/assets/3fd7fe92-5c16-408c-b201-f0ac87ec2e51" />
+<img width="743" height="460" alt="Screenshot 2025-08-23 at 22 52 56" src="https://github.com/user-attachments/assets/c4c6622e-e874-4f83-baaa-2f10cbf6e6cf" />
 
-From the correlation and regression analysis, the following data was gotten:
-
-
-The regression output provides a model of how TV and Radio budgets together predict sales, with Newspaper spending < 10. The model is:
+The regression output provides a model of how TV and Radio budgets together predict sales, with Newspaper spending < $10. The model is:
 Sales = 2.4702 + 0.0483 × TV_ad_budget + 0.1737 × Radio_ad_budget
 
 Key points from the regression:
