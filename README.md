@@ -64,7 +64,7 @@ The dataset is imported into pgSQL using the following query:
 3. Budget Combinations (Sales > 20)
 <img width="570" height="91" alt="Screenshot 2025-08-19 at 13 37 04" src="https://github.com/user-attachments/assets/f32d1caa-23b7-4cfb-9a17-b0912825f9f6" />
 
-## Exploratory Data Analysis (Statistical Analysis)
+## Exploratory Data Analysis
 1. TV Advertising Across Budget Ranges (Low, Medium, High, Very High)
 Percentile is used to categorizxe the budget ranges:
 
@@ -76,9 +76,9 @@ Upper Quartile = QUARTILE.INC(B2:B201, 3) = 218.825
 When Newspaper Ad Budget is minimal (less than $10), there are 42 relevant data points for analysis.
 The csv file 'newspaperlessthan10.csv' contains this dataset.
 
-3: Budget Combinations (Sales > 20)
+3. Budget Combinations (Sales > 20)
 
-## Results and Findings
+### Results and Findings
 1.
 **Low**: less than $74.4
 **Medium**: from $74.4 to $149.8
@@ -149,7 +149,8 @@ d. Standard Error and Confidence Intervals:
 **Combined trio effect**: To consistently achieve sales > 20, prioritize radio budgets (50–70 units) with moderate TV budgets (100–200 units), e.g., TV = 100, Radio = 60 (Sales ≈ 21.88) or TV = 10, Radio = 70 (Sales ≈ 20.59). Minimizing newspaper spending optimizes resources, as its effect is trivial. The equation 0.0486·TV + 0.3087·Radio > 21.5015 guides effective combinations, leveraging radio's  6.3x stronger per-dollar impact. The model’s reliability supports strategic planning, though linearity assumptions need further validation.
 
 ### Recommendations
-The analysis shows that TV advertising has a strong positive correlation with sales (0.79), making it a critical channel. However, the marginal effect per $1 of TV spend (≈0.048) is smaller than radio’s. This suggests that while TV should remain a cornerstone for brand visibility, allocating excessively high budgets to TV beyond the “High” range ($150–$220) yields diminishing returns. Therefore, businesses should focus on maintaining TV budgets in the medium-to-high range ($100–$200), ensuring consistent visibility while freeing resources for other impactful channels.
+The analysis shows that TV advertising has a strong positive correlation with sales (0.79), making it a critical channel. However, the marginal effect per $1 of TV spend (≈0.048) is smaller than the radio’s. This suggests that while TV should remain a cornerstone for brand visibility, allocating excessively high budgets to TV beyond the “High” range ($150–$220) yields diminishing returns. Therefore, businesses should focus on maintaining TV budgets in the medium-to-high range ($100–$200), ensuring consistent visibility while freeing resources for other impactful channels.
+
 When newspaper spending is minimal (like less thn $10), the regression shows TV and radio together explain 84% of sales variance. Radio delivers a stronger per-dollar impact (0.174 vs. 0.048 for TV). Hence, balancing TV for reach and radio for cost-effective sales lift is recommended. Firms should adopt a dual-focus strategy: maintain steady TV investment for broad market exposure, while strategically scaling radio to amplify immediate sales responses.
 3. For sales more than 20, the regression confirms radio as the dominant driver (0.309 per $1 vs. 0.049 for TV). To consistently achieve Sales > 20, firms should prioritize radio-heavy budgets (50–70 units) supported by moderate TV spend (100–200 units), while minimizing newspaper spend. This combination provides the most reliable path to strong sales performance.
 
