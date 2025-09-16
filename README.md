@@ -1,5 +1,5 @@
 # Advertising_Sales_and_Budget
-This data analyses the impact of different means of advertisement on the product sales
+This data analysis evaluates the impacts of different advertising methods, including TV, Radio, and Newspaper campaigns, on driving product sales, highlighting optimal strategies yield effectiveness.
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@ This data analyses the impact of different means of advertisement on the product
 This projects aims to analyze the relationship between advertising budgets across different media channels (TV, Radio, Newspaper) and their impact on sales. The objective is to unconer insights intonhow budget allocations influence sales outcomes, identoify trends and provide actionabe recommendations for optimizing advertising strategies.
 
 ## Data Sources
-The primare dataset is provided in the file "Advertising Budget and Sales.csv" containing 200 rows and 4 columns:
+The primary dataset is provided in the file "Advertising Budget and Sales.csv" containing 200 rows and 4 columns:
 - TV Ad Budget ($): Budget allocated to TV advertising.
 - Radio Ad Budget ($): Budget allocated to Radio advertising.
 - Newspaper Ad Budget ($): Budget allocated to Newspaper advertising.
@@ -27,9 +27,9 @@ The primare dataset is provided in the file "Advertising Budget and Sales.csv" c
 
 ### Questions
 1. How does the TV advertising vary across different budget ranges (e.g. Low, Medium or High)?
-   
+
 2. What is the combined effect of TV and Radio advertising on sales when Newspaper spending is minimal (e.g. < 10)?
-  
+
 3. Are there specific combinations of advertising budgets that consistently lead to high sales (e.g. Sales > 20)?
 
 ### Tools
@@ -68,7 +68,7 @@ The dataset is imported into pgSQL using the following query:
 1. TV Advertising Across Budget Ranges (Low, Medium, High, Very High)
 Percentile is used to categorizxe the budget ranges:
 
-Lower Quartile = QUARTILE.INC(B2:B201, 3) = 74.375 
+Lower Quartile = QUARTILE.INC(B2:B201, 3) = 74.375
 Median = QUARTILE.INC(B2:B201, 3) = 149.75
 Upper Quartile = QUARTILE.INC(B2:B201, 3) = 218.825
 
@@ -77,7 +77,7 @@ When Newspaper Ad Budget is minimal (less than $10), there are 42 relevant data 
 The csv file 'newspaperlessthan10.csv' contains this dataset.
 
 3. Budget Combinations (Sales > 20)
-
+a
 ### Results and Findings
 1.
 **Low**: less than $74.4
@@ -152,7 +152,8 @@ d. Standard Error and Confidence Intervals:
 The analysis shows that TV advertising has a strong positive correlation with sales (0.79), making it a critical channel. However, the marginal effect per $1 of TV spend (≈0.048) is smaller than the radio’s. This suggests that while TV should remain a cornerstone for brand visibility, allocating excessively high budgets to TV beyond the “High” range ($150–$220) yields diminishing returns. Therefore, businesses should focus on maintaining TV budgets in the medium-to-high range ($100–$200), ensuring consistent visibility while freeing resources for other impactful channels.
 
 When newspaper spending is minimal (like less thn $10), the regression shows TV and radio together explain 84% of sales variance. Radio delivers a stronger per-dollar impact (0.174 vs. 0.048 for TV). Hence, balancing TV for reach and radio for cost-effective sales lift is recommended. Firms should adopt a dual-focus strategy: maintain steady TV investment for broad market exposure, while strategically scaling radio to amplify immediate sales responses.
-3. For sales more than 20, the regression confirms radio as the dominant driver (0.309 per $1 vs. 0.049 for TV). To consistently achieve Sales > 20, firms should prioritize radio-heavy budgets (50–70 units) supported by moderate TV spend (100–200 units), while minimizing newspaper spend. This combination provides the most reliable path to strong sales performance.
+
+For sales over $20, the regression confirms radio as the dominant driver (0.309 per $1 vs. 0.049 for TV). Firms should prioritize radio-heavy budgets (50–70 units) supported by moderate TV spend (100–200 units) to consistently achieve Sales greater than $20, while minimizing newspaper ad spendings. This combination provides the most reliable path to strong sales performance.
 
 ### Limitations
 The analysis has three main limitations. First, the dataset only covers TV, Radio, and Newspaper advertising, leaving out other influential factors such as digital marketing, pricing, competitor activity, or seasonality. Including these variables would provide a more complete understanding of what drives sales. Additionally, the regression models assume a strictly linear relationship between advertising spend and sales. In practice, the effect of advertising may follow patterns of diminishing returns or thresholds, which could be better captured through non-linear models. Third, the findings are specific to this dataset and may not generalize to other industries or markets. Testing the approach on larger, industry-specific datasets would improve the reliability and applicability of the results.
