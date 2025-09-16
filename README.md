@@ -33,7 +33,7 @@ The primary dataset is provided in the file "Advertising Budget and Sales.csv" c
 3. Are there specific combinations of advertising budgets that consistently lead to high sales (e.g. Sales > 20)?
 
 ### Tools
-- Excel (Data cleaning, sorting, statistical analysis and Visualization)
+- Excel (Data cleaning, sorting, statistical analysis and visualization)
 - pgSQL (Data querying)
 
 ### Data Cleaning and Preparation
@@ -45,9 +45,9 @@ In the initial data preparation phase, the following tasks were performed as lis
 4. Checked for outliers using z-scores:
    - TV Ad Budget ($): No extreme outliers
    - Radio Ad Budget ($): No extreme outliers
-   - Newspaper Ad Budget ($): One outlier (144)
+   - Newspaper Ad Budget ($): One outlier ($144)
    - Sales ($): No extreme outliers
-All outliers are demmed plausible.
+All outliers are deemed plausible.
 
 ### Data Extraction and Querying
 The dataset is imported into pgSQL using the following query:
