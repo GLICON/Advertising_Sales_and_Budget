@@ -16,7 +16,7 @@ This data analysis evaluates the impacts of different advertising methods, inclu
 - [References](#references)
 
 # Project Overview
-This projects aims to analyze the relationship between advertising budgets across different media channels (TV, Radio, Newspaper) and their impact on sales. The objective is to unconer insights intonhow budget allocations influence sales outcomes, identoify trends and provide actionabe recommendations for optimizing advertising strategies.
+This projects aims to analyze the relationship between advertising budgets across different media channels (TV, Radio, Newspaper) and their impact on sales. The objective is to uncover insights into how budget allocations influence sales outcomes, identify trends and provide actionabe recommendations for optimizing advertising strategies.
 
 ## Data Sources
 The primary dataset is provided in the file "Advertising Budget and Sales.csv" containing 200 rows and 4 columns:
@@ -66,7 +66,7 @@ The dataset is imported into pgSQL using the following query:
 
 ## Exploratory Data Analysis
 1. TV Advertising Across Budget Ranges (Low, Medium, High, Very High)
-Percentile is used to categorizxe the budget ranges:
+Percentile is used to categorize the budget ranges:
 
 Lower Quartile = QUARTILE.INC(B2:B201, 3) = 74.375
 Median = QUARTILE.INC(B2:B201, 3) = 149.75
@@ -117,9 +117,9 @@ Combined Effect of TV and Radio
 A correlation of 0.79 for TV advertising indicates a strong linear relationship, meaning higher TV ad budgets are closely tied to increased sales. In contrast, a correlation of 0.46 for radio advertising suggests a moderate linear relationship, where higher radio ad budgets are associated with higher sales, but the connection is less robust than for TV. These correlations highlight TV's stronger impact on sales compared to radio.
 
 **Combined Impact**:
-- The high R-squared (0.8409) shows that TV and Radio together account for most of the variation in sales when Newspaper spending is minimal. R-squared value of 0.85 indicates that 85% of the variation in sales can be explained by the combined effect of TV and radio advertising budgets. This suggests a strong relationship between TV and Radio ad spendings and sales when Newspapar ad is budgeted less than $10. The regression model suggests that both variables are significant predictors, and their combined effect is substantial, with no evidence of multicollinearity (TV and Radio correlation is near zero at -0.0159).
+- The high R-squared (0.8409) shows that TV and Radio together account for most of the variation in sales when Newspaper spending is minimal. R-squared value of 0.85 indicates that 85% of the variation in sales can be explained by the combined effect of TV and radio advertising budgets. This suggests a strong relationship between TV and Radio ad. spendings and sales when Newspapar ad is budgeted less than $10. The regression model suggests that both variables are significant predictors, and their combined effect is substantial, with no evidence of multicollinearity (TV and Radio correlation is near zero at -0.0159).
 
-Coeffiicients for TV ad budgdet: 0.048 and
+Coefficients for TV ad budgdet: 0.048 and
 Coefficients for Radio ad budget: 0.174
 
 On the other hand, for each $1 increase in TV budget, sales increase by about 0.047 units, holding Radio ad budget constant while for each $1 increase in Radio budget, sales increase by about 0.176 units, holding TV ad budget constant.
