@@ -90,6 +90,7 @@ The regression output provides a model of how TV and Radio budgets together pred
 Sales = 2.4702 + 0.0483 × TV_ad_budget + 0.1737 × Radio_ad_budget
 
 Key points from the regression:
+
 a.	R-squared: 0.84 (84%) - TV and Radio together explain 84% of the variance in sales, indicating a strong combined effect and the adjusted R-squared (0.8325) confirms the model’s goodness of fit, accounting for the number of predictors.
 
 b.	Coefficients:
