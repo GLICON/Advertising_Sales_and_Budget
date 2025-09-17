@@ -107,15 +107,16 @@ d.	Standard Error and Confidence Intervals:
 - TV coefficient: 0.0483 ± 0.0078 (95% CI: 0.0405 to 0.0561)
 - Radio coefficient: 0.1737 ± 0.0470 (95% CI: 0.1267 to 0.2207)
 - Both coefficients are precise, with narrow confidence intervals, reinforcing their reliability.
-Combined Effect of TV and Radio
 
-**Individual Contributions**:
-- TV has a stronger correlation with sales (0.7916) than Radio (0.4584), suggesting TV ads is a more dominant driver of sales in this dataset.
+**Effect of TV and Radio ads on Sales**
+
+-**Individual Contributions**:
+TV has a stronger correlation with sales (0.7916) than Radio (0.4584), suggesting TV ads is a more dominant driver of sales in this dataset.
 
 A correlation of 0.79 for TV advertising indicates a strong linear relationship, meaning higher TV ad budgets are closely tied to increased sales. In contrast, a correlation of 0.46 for radio advertising suggests a moderate linear relationship, where higher radio ad budgets are associated with higher sales, but the connection is less robust than for TV. These correlations highlight TV's stronger impact on sales compared to radio.
 
-**Combined Impact**:
-- The high R-squared (0.8409) shows that TV and Radio together account for most of the variation in sales when Newspaper spending is minimal. R-squared value of 0.85 indicates that 85% of the variation in sales can be explained by the combined effect of TV and radio advertising budgets. This suggests a strong relationship between TV and Radio ad. spendings and sales when Newspapar ad is budgeted less than $10. The regression model suggests that both variables are significant predictors, and their combined effect is substantial, with no evidence of multicollinearity (TV and Radio correlation is near zero at -0.0159).
+-**Combined Impact**:
+The high R-squared (0.8409) shows that TV and Radio together account for most of the variation in sales when Newspaper spending is minimal. R-squared value of 0.85 indicates that 85% of the variation in sales can be explained by the combined effect of TV and radio advertising budgets. This suggests a strong relationship between TV and Radio ad. spendings and sales when Newspapar ad is budgeted less than $10. The regression model suggests that both variables are significant predictors, and their combined effect is substantial, with no evidence of multicollinearity (TV and Radio correlation is near zero at -0.0159).
 
 <img width="2007" height="1452" alt="newspaperlessthan10" src="https://github.com/user-attachments/assets/fc473da8-d43b-43d0-a265-842a429d27ba" />
 
