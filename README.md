@@ -95,7 +95,7 @@ Key points from the regression:
 a.	R-squared: 0.84 (84%) - TV and Radio together explain 84% of the variance in sales, indicating a strong combined effect and the adjusted R-squared (0.8325) confirms the model’s goodness of fit, accounting for the number of predictors.
 
 b.	Coefficients:
-Intercept: 2.4702 (p = 0.0062, significant) Baseline sales when TV and Radio budgets are zero.
+Intercept: 2.4702 (p = 0.0062, significant) - Baseline sales when TV and Radio budgets are zero.
 
 - TV_ad_budget: 0.0483 (p = 4.93E-15, highly significant)
 	For each $1 increase in TV budget, sales increase by 0.0483 units, holding Radio constant.
