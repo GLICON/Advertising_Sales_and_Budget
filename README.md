@@ -119,6 +119,8 @@ A correlation of 0.79 for TV advertising indicates a strong linear relationship,
 **Combined Impact**:
 - The high R-squared (0.8409) shows that TV and Radio together account for most of the variation in sales when Newspaper spending is minimal. R-squared value of 0.85 indicates that 85% of the variation in sales can be explained by the combined effect of TV and radio advertising budgets. This suggests a strong relationship between TV and Radio ad. spendings and sales when Newspapar ad is budgeted less than $10. The regression model suggests that both variables are significant predictors, and their combined effect is substantial, with no evidence of multicollinearity (TV and Radio correlation is near zero at -0.0159).
 
+<img width="2007" height="1452" alt="newspaperlessthan10" src="https://github.com/user-attachments/assets/fc473da8-d43b-43d0-a265-842a429d27ba" />
+
 Coefficients for TV ad budgdet: 0.048 and
 Coefficients for Radio ad budget: 0.174
 
