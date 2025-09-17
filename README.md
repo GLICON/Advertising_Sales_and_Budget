@@ -68,9 +68,7 @@ The dataset is imported into pgSQL using the following query:
 1. TV Advertising Across Budget Ranges (Low, Medium, High, Very High)
 Percentile is used to categorize the budget ranges:
 
-Lower Quartile = QUARTILE.INC(B2:B201, 3) = 74.375
-Median = QUARTILE.INC(B2:B201, 3) = 149.75
-Upper Quartile = QUARTILE.INC(B2:B201, 3) = 218.825
+Lower Quartile = QUARTILE.INC(B2:B201, 3) = 74.375,Median = QUARTILE.INC(B2:B201, 3) = 149.75, Upper Quartile = QUARTILE.INC(B2:B201, 3) = 218.825
 
 2. TV and Radio/TV Effect (Newspaper < 10)
 When Newspaper Ad Budget is minimal (less than $10), there are 42 relevant data points for analysis.
