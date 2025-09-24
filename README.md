@@ -1,5 +1,5 @@
 # Advertising_Sales_and_Budget
-This data analysis evaluates the impacts of different advertising methods, including TV, Radio, and Newspaper campaigns, on driving product sales, highlighting optimal strategies yield effectiveness.
+This data analysis evaluates the impacts of different advertising methods, including TV, Radio, and Newspaper campaigns on driving product sales, highlighting optimal strategies that will yield effectiveness.
 
 ## Table of Contents
 
@@ -65,17 +65,19 @@ The dataset is imported into pgSQL using the following query:
 <img width="570" height="91" alt="Screenshot 2025-08-19 at 13 37 04" src="https://github.com/user-attachments/assets/f32d1caa-23b7-4cfb-9a17-b0912825f9f6" />
 
 ## Exploratory Data Analysis
-1. TV Advertising Across Budget Ranges (Low, Medium, High, Very High)
+1. TV Advertising across budget ranges (Low, Medium, High, Very High)
 Percentile is used to categorize the budget ranges:
 
-Lower Quartile = QUARTILE.INC(B2:B201, 3) = 74.375,Median = QUARTILE.INC(B2:B201, 3) = 149.75, Upper Quartile = QUARTILE.INC(B2:B201, 3) = 218.825
+Lower Quartile = QUARTILE.INC(B2:B201, 3) = 74.375, Median = QUARTILE.INC(B2:B201, 3) = 149.75, Upper Quartile = QUARTILE.INC(B2:B201, 3) = 218.825
 
 2. TV and Radio/TV Effect (Newspaper < 10)
+
 When Newspaper Ad Budget is minimal (less than $10), there are 42 relevant data points for analysis.
 The csv file 'newspaperlessthan10.csv' contains this dataset.
 
 3. Budget Combinations (Sales > 20)
-a
+The ad budgets combination that produced sales greater than $20 were evaluated to checj for consistency which may have led to high sales.
+
 ### Results and Findings
 1.
 **Low**: less than $74.4
@@ -136,7 +138,7 @@ a. R-squared: 0.9687 (96.87%) - The model explains 96.87% of sales variance, ens
 
 b. Coefficients:
    - Intercept: -1.5015 (p = 0.112, not significant) - Baseline sales without advertising are negligible, requiring substantial TV and radio budgets to exceed Sales > 20. This emphasizes the need for active investment in effective channels like radio.
-   - TV_ad_budget: 0.0486 (p = 1.69E-17, highly significant) - Each $1 in TV increases sales by 0.0486 units, contributing modestly to high sales when paired with radio. Combinations like TV = 300 + Radio = 30 (Sales ≈ 22.34) rely on TV as a secondary driver.
+   - TV_ad_budget: 0.0486 (p = 1.69E-17, highly significant) - Each $1 in TV increases sales by 0.0486, contributing modestly to high sales when paired with radio. Combinations like TV = $300 + Radio = $30 (Sales ≈ $22.34) rely on TV as a secondary driver.
    - Radio_ad_budget: 0.3087 (p = 4.54E-20, highly significant) - Radio’s strong effect (0.3087 units per $1) drives Sales > 20 efficiently, as in Radio = 70 + TV = 10 (Sales ≈ 20.59). It’s the primary lever for consistent high sales due to its outsized impact.
    - Newspaper_ad_budget: 0.0011 (p = 0.705, not significant) - Newspaper has negligible impact, so excluding it from combinations maximizes budget efficiency. Resources are better allocated to radio and TV for Sales > 20.
 
@@ -145,9 +147,9 @@ c. Model Significance: F-statistic (268.61, p = 1.12E-19) shows the model is hig
 d. Standard Error and Confidence Intervals:
    - **TV**: 0.0486 ± 0.0024 (95% CI: 0.0436–0.0535) - The precise TV coefficient supports consistent contributions in combinations like TV = 200 + Radio = 50 (Sales ≈ 23.65). Narrow CI ensures reliability for planning high-sales strategies.
    - **Radio**: 0.3087 ± 0.0119 (95% CI: 0.2841–0.3332) - Radio’s large, precise effect confirms its dominance in achieving Sales > 20, as in Radio = 60 + TV = 100 (Sales ≈ 21.88). The tight CI reinforces confidence in radio-heavy budgets.
-   - **Newspaper**: 0.0011 ± 0.0028 (95% CI: -0.0048–0.0069) - The CI spanning zero confirms newspaper’s irrelevance, so budgets should focus on radio and TV. This avoids wasting resources on ineffective channels for high sales.
+   - **Newspaper**: 0.0011 ± 0.0028 (95% CI: -0.0048–0.0069) - The CI spanning zero confirms newspaper ad’s irrelevance, so budgets should focus on radio and TV. This avoids wasting resources on ineffective channels for high sales.
 
-**Combined trio effect**: To consistently achieve sales > 20, prioritize radio budgets (50–70 units) with moderate TV budgets (100–200 units), e.g., TV = $100, Radio = $60 (Sales ≈ $21.88) or TV = $10, Radio = $70 (Sales ≈ $20.59). Minimizing newspaper spending optimizes resources, as its effect is trivial. The equation 0.0486·TV + 0.3087·Radio > 21.5015 guides effective combinations, leveraging radio's  6.3x stronger per-dollar impact. The model’s reliability supports strategic planning, though linearity assumptions need further validation.
+**Combined trio effect**: To consistently achieve sales > 20, prioritize radio budgets ($50–70) with moderate TV budgets ($100–200), e.g., TV = $100, Radio = $60 (Sales ≈ $21.88) or TV = $10, Radio = $70 (Sales ≈ $20.59). Minimizing newspaper spending optimizes resources, as its effect is trivial. The equation 0.0486·TV + 0.3087·Radio > 21.5015 guides effective combinations, leveraging radio's  6.3x stronger per-dollar impact. The model’s reliability supports strategic planning, though linearity assumptions need further validation.
 
 ### Recommendations
 The analysis shows that TV advertising has a strong positive correlation with sales (0.79), making it a critical channel. However, the marginal effect per $1 of TV spend (≈0.048) is smaller than the radio’s. This suggests that while TV should remain a cornerstone for brand visibility, allocating excessively high budgets to TV beyond the “High” range ($150–$220) yields diminishing returns. Therefore, businesses should focus on maintaining TV budgets in the medium-to-high range ($100–$200), ensuring consistent visibility while freeing resources for other impactful channels.
