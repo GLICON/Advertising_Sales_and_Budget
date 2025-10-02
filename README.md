@@ -1,5 +1,5 @@
 # Advertising_Sales_and_Budget
-This data analysis evaluates the impacts of different advertising methods, including TV, Radio, and Newspaper campaigns on driving product sales, highlighting optimal strategies that will yield effectiveness.
+This data analysis evaluates the impacts of different advertising methods, including TV, Radio, and Newspaper campaigns on driving product sales, highlighting optimal strategies that will yield effective sales.
 
 ## Table of Contents
 
@@ -23,50 +23,58 @@ The primary dataset is provided in the file "Advertising Budget and Sales.csv" c
 - TV Ad Budget ($): Budget allocated to TV advertising.
 - Radio Ad Budget ($): Budget allocated to Radio advertising.
 - Newspaper Ad Budget ($): Budget allocated to Newspaper advertising.
-- Sales ($): Sales figures associated with the advertising budgets.
+- Sales ($): Sales outcome from the advertising budgets combinations.
 
 ### Questions
 1. How does the TV advertising vary across different budget ranges (e.g. Low, Medium or High)?
 
-2. What is the combined effect of TV and Radio advertising on sales when Newspaper spending is minimal (e.g. < 10)?
+2. What is the combined effect of TV and Radio advertising on Sales when Newspaper spending is minimal (e.g. < $10)?
 
-3. Are there specific combinations of advertising budgets that consistently lead to high sales (e.g. Sales > 20)?
+3. Are there specific combinations of advertising budgets that consistently lead to high sales (e.g. Sales > $20)?
 
 ### Tools
-- Excel (Data cleaning, sorting, statistical analysis and visualization)
-- pgSQL (Data querying)
+- Excel (Data Cleaning and Sorting)
+- pgSQL (Data Querying)
+- Excel (Statistical analysis and Data Visualization)
 
 ### Data Cleaning and Preparation
 In the initial data preparation phase, the following tasks were performed as listed below:
 
-1. Import "Advertising Budget and Sales.csv" into Excel
+1. Imported "Advertising Budget and Sales.csv" into Excel
 2. Checked for missing or null values
 3. Ensured the numerical columns (e.g., TV Ad Budget, Radio Ad Budget, Newspaper Ad Budget and Sales) were kept as float for accurate computations
 4. Checked for outliers using z-scores:
-   - TV Ad Budget ($): No extreme outliers
-   - Radio Ad Budget ($): No extreme outliers
-   - Newspaper Ad Budget ($): One outlier ($144)
-   - Sales ($): No extreme outliers
+   - TV Ad Budget($): No extreme outliers
+   - Radio Ad Budget($): No extreme outliers
+   - Newspaper Ad Budget($): One outlier ($144)
+   - Sales($): No extreme outliers
 All outliers are deemed plausible.
 
 ### Data Extraction and Querying
 The dataset is imported into pgSQL using the following query:
+
 <img width="487" height="138" alt="Screenshot 2025-08-09 at 12 33 24" src="https://github.com/user-attachments/assets/1ee6323b-709e-4a26-8ec3-424fd13c96d8" />
 
-1. TV Budget Ranges (Low: <100, Medium: 100-200, High: >200)
+1. TV Budget Ranges (Low: < $100, Medium: $100-200, High: > $200)
+
+This SQL query processes data from an advertising table, focusing on the TV Ad budget. It groups the data into three budget ranges, calculates aggregate statistics, and orders the results
+
 <img width="512" height="354" alt="Screenshot 2025-08-19 at 12 54 04" src="https://github.com/user-attachments/assets/04cf2e2a-e942-477a-89f5-973ff9affee6" />
 
 <img width="624" height="121" alt="Screenshot 2025-08-19 at 12 51 26" src="https://github.com/user-attachments/assets/88526529-e34a-4fd5-b1e8-211f27e61072" />
 
 2. Combined effect of TV and Radio only (Newspaper_Budget < 10)
+The SQL query selects TV ad budget, radio ad budget, and sales ffrom the advertising dataset, filtering rows where Newspaper_ad_budget is less than $10, isolating TV and Radio's combined effect on sales.
+
 <img width="410" height="93" alt="Screenshot 2025-08-19 at 13 05 39" src="https://github.com/user-attachments/assets/b60e05d3-8746-4f8e-b7bd-0bf7576416d6" />
 
 3. Budget Combinations (Sales > 20)
+Budget combinations of TV, Radio and Newspaper ad budgets for a sales outcome greater than $20 are filtered using the query below.
 <img width="570" height="91" alt="Screenshot 2025-08-19 at 13 37 04" src="https://github.com/user-attachments/assets/f32d1caa-23b7-4cfb-9a17-b0912825f9f6" />
 
 ## Exploratory Data Analysis
 1. TV Advertising across budget ranges (Low, Medium, High, Very High)
-Percentile is used to categorize the budget ranges:
+Alternatively, Quartile function on MS Excel is used to categorize the budget ranges:
 
 Lower Quartile = QUARTILE.INC(B2:B201, 3) = 74.375, Median = QUARTILE.INC(B2:B201, 3) = 149.75, Upper Quartile = QUARTILE.INC(B2:B201, 3) = 218.825
 
