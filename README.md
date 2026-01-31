@@ -62,8 +62,7 @@ CREATE Table Advertisement_Budget_and_Sales (
 );
 ```
 
-1. TV Budget Ranges (Low: < $100, Medium: $100-200, High: > $200)
-
+1. **TV Budget Ranges (Low: < $100, Medium: $100-200, High: > $200)**:
 This SQL query processes data from an advertising table, focusing on the TV Ad budget. It groups the data into three budget ranges, calculates aggregate statistics, and orders the results
 
 ```sql
@@ -87,7 +86,7 @@ ORDER BY Avg_TV_Budget;
 ```
 <img width="624" height="121" alt="Screenshot 2025-08-19 at 12 51 26" src="https://github.com/user-attachments/assets/88526529-e34a-4fd5-b1e8-211f27e61072" />
 
-2. Combined effect of TV and Radio only (Newspaper_Budget < 10)
+2. **Combined effect of TV and Radio only (Newspaper_Budget < 10)**:
 The SQL query selects TV ad budget, radio ad budget, and sales ffrom the advertising dataset, filtering rows where Newspaper_ad_budget is less than $10, isolating TV and Radio's combined effect on sales.
 
 ```sql
@@ -96,7 +95,7 @@ FROM advertising
 WHERE Newspaper_ad_Budget < 10
 ```
 
-3. Budget Combinations (Sales > 20)
+3. **Budget Combinations (Sales > 20)**:
 Budget combinations of TV, Radio and Newspaper ad budgets for a sales outcome greater than $20 are filtered using the query below.
 
 ```sql
@@ -107,17 +106,17 @@ ORDER BY Sales DESC;
 ```
 
 ## Exploratory Data Analysis
-1. TV Advertising across budget ranges (Low, Medium, High, Very High)
+1. **TV Advertising across budget ranges (Low, Medium, High, Very High)**:
 Alternatively, Quartile function on MS Excel is used to categorize the budget ranges:
 
 Lower Quartile = QUARTILE.INC(B2:B201, 3) = 74.375, Median = QUARTILE.INC(B2:B201, 3) = 149.75, Upper Quartile = QUARTILE.INC(B2:B201, 3) = 218.825
 
-2. TV and Radio/TV Effect (Newspaper < 10)
+2. **TV and Radio/TV Effect (Newspaper < 10)**:
 
 When Newspaper Ad Budget is minimal (less than $10), there are 42 relevant data points for analysis.
 The csv file 'newspaperlessthan10.csv' contains this dataset.
 
-3. Budget Combinations (Sales > 20)
+3. **Budget Combinations (Sales > 20)**:
 The ad budgets combination that produced sales greater than $20 were evaluated to checj for consistency which may have led to high sales.
 
 ### Results and Findings
