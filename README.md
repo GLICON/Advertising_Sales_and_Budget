@@ -34,7 +34,7 @@ The primary dataset is provided in the file "Advertising Budget and Sales.csv" c
 
 ### Tools
 - Excel (Data Cleaning and Sorting)
-- pgSQL (Data Querying)
+- SQL (Data Querying)
 - Excel (Statistical analysis and Data Visualization)
 
 ### Data Cleaning and Preparation
