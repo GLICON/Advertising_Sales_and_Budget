@@ -52,25 +52,59 @@ All outliers are deemed plausible.
 
 ### Data Extraction and Querying
 The dataset is imported into pgSQL using the following query:
-
-<img width="487" height="138" alt="Screenshot 2025-08-09 at 12 33 24" src="https://github.com/user-attachments/assets/1ee6323b-709e-4a26-8ec3-424fd13c96d8" />
+```sql
+CREATE Table Advertisement_Budget_and_Sales (
+      ID INTEGER PRIMARY KEY,
+      tv_ad_budget FLOAT NOT NULL,
+      radio_ad_budget FLOAT NOT NULL,
+      newspaper_ad_budget FLOAT NOT NULL,
+      sales FLOAT NOT NULL
+);
+```
 
 1. TV Budget Ranges (Low: < $100, Medium: $100-200, High: > $200)
 
 This SQL query processes data from an advertising table, focusing on the TV Ad budget. It groups the data into three budget ranges, calculates aggregate statistics, and orders the results
 
-<img width="512" height="354" alt="Screenshot 2025-08-19 at 12 54 04" src="https://github.com/user-attachments/assets/04cf2e2a-e942-477a-89f5-973ff9affee6" />
-
+```sql
+SELECT
+   CASE
+      WHEN tV_ad_budget < 100 THEN 'Low'
+      WHEN tV_ad_budget BETWEEN 100 AND 200 THEN 'Medium'
+      ELSE 'High'
+   END AS Budget_Range,
+   COUNT (*) AS Count, AVG (tv_ad_budget) AS Avg_TV_Budget,
+   MIN(TV_ad_budget) AS Min_TV_Budget,
+   MAX (TV_ad_budget) AS Max_TV_Budget
+FROM advertising
+GROUP BY
+   CASE
+      WHEN TV_ad_budget < 100 THEN 'Low'
+      WHEN TV_ad_budget BETWEEN 100 AND 200 THEN 'Medium'
+      ELSE 'High'
+   END
+ORDER BY Avg_TV_Budget;
+```
 <img width="624" height="121" alt="Screenshot 2025-08-19 at 12 51 26" src="https://github.com/user-attachments/assets/88526529-e34a-4fd5-b1e8-211f27e61072" />
 
 2. Combined effect of TV and Radio only (Newspaper_Budget < 10)
 The SQL query selects TV ad budget, radio ad budget, and sales ffrom the advertising dataset, filtering rows where Newspaper_ad_budget is less than $10, isolating TV and Radio's combined effect on sales.
 
-<img width="410" height="93" alt="Screenshot 2025-08-19 at 13 05 39" src="https://github.com/user-attachments/assets/b60e05d3-8746-4f8e-b7bd-0bf7576416d6" />
+```sql
+SELECT tv_ad_budget, radio_ad_budget, sales
+FROM advertising
+WHERE Newspaper_ad_Budget < 10
+```
 
 3. Budget Combinations (Sales > 20)
 Budget combinations of TV, Radio and Newspaper ad budgets for a sales outcome greater than $20 are filtered using the query below.
-<img width="570" height="91" alt="Screenshot 2025-08-19 at 13 37 04" src="https://github.com/user-attachments/assets/f32d1caa-23b7-4cfb-9a17-b0912825f9f6" />
+
+```sql
+SELECT tV_ad_budget, radio_ad_budget, newspaper_ad_budget, sales
+FROM advertising
+WHERE Sales > 20
+ORDER BY Sales DESC;
+```
 
 ## Exploratory Data Analysis
 1. TV Advertising across budget ranges (Low, Medium, High, Very High)
